@@ -23,4 +23,4 @@ stages:
                 containerRegistry: 'ACRSVC'
                 repository: 'petsroteapp'
                 command: 'buildAndPush'
-                Dockerfile: '$(System.DefaultWorkingDirectory	)/petstore/petstoreapp/Dockerfile'
+                Dockerfile: '$(System.DefaultWorkingDirectory)/petstore/petstoreapp/Dockerfile'
