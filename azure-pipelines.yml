@@ -14,11 +14,14 @@ stages:
     jobs:
       - job: Buildpetstoreapp
         steps:
-          
-          - task: Docker@2
-            inputs:
-              containerRegistry: 'ACRSVC'
-              repository: 'petsroteapp'
-              command: 'buildAndPush'
-              Dockerfile: '**/Dockerfile'
-              buildContext: '/petstore/petstoreapp/'
+            - task: DockerInstaller@0
+              inputs:
+                 dockerVersion: '17.09.0-ce'
+
+            - task: Docker@2
+              inputs:
+                containerRegistry: 'ACRSVC'
+                repository: 'petsroteapp'
+                command: 'buildAndPush'
+                Dockerfile: '**/Dockerfile'
+                buildContext: '/petstore/petstoreapp/'
