@@ -9,6 +9,9 @@ trigger:
 pool:
   name: Pool1
 
+variables:
+  tag: '$(Build.BuildId)'
+
 stages:
   - stage: Build
     jobs:
@@ -24,3 +27,5 @@ stages:
                 repository: 'petsroteapp'
                 command: 'buildAndPush'
                 Dockerfile: '$(System.DefaultWorkingDirectory)/petstore/petstoreapp/Dockerfile'
+                tags: |
+                  $(tag)
