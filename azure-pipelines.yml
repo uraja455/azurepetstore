@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- None
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Build
+    jobs:
+      - job: Buildpetstoreapp
+        steps:
+          
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'ACRSVC'
+              repository: 'petsroteapp'
+              command: 'buildAndPush'
+              Dockerfile: '**/Dockerfile'
+              buildContext: '/petstore/petstoreapp/'
