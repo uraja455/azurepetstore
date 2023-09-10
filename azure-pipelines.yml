@@ -24,4 +24,4 @@ stages:
                 repository: 'petsroteapp'
                 command: 'buildAndPush'
                 Dockerfile: '**/Dockerfile'
-                buildContext: '/petstore/petstoreapp/'
+                buildContext: 'petstoreapp/'
