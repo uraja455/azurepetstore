@@ -34,7 +34,10 @@ stages:
     jobs:
       - job: DeployPetstoreapp
         steps:
-           
+          - task: ManualValidation@0
+            inputs:
+              notifyUsers: 'sridevi.bujj@gmail.com'
+              instructions: 'Please validate and approve deployment to webapp'
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: 'Free Trial(e1f99b09-6d33-48df-bb4e-37349ec2de67)'
