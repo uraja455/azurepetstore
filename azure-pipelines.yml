@@ -7,7 +7,8 @@ trigger:
 - main
 
 pool:
-  name: Pool1
+  #name: Pool1
+  vmImage: ubuntu-latest
 
 variables:
   tag: '$(Build.BuildId)'
