@@ -32,12 +32,17 @@ stages:
                   $(tag)
   - stage: Deploytowebapp
     jobs:
-      - job: DeployPetstoreapp
+    
+      - job: ManualApproval
+        pool: server
         steps:
           - task: ManualValidation@0
             inputs:
               notifyUsers: 'sridevi.bujj@gmail.com'
-              instructions: 'Please validate and approve deployment to webapp'
+              instructions: 'Please validate and approve deployment to webapp' 
+            
+      - job: DeployPetstoreapp
+        steps:
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: 'Free Trial(e1f99b09-6d33-48df-bb4e-37349ec2de67)'
