@@ -30,7 +30,7 @@ stages:
                 Dockerfile: '$(System.DefaultWorkingDirectory)/petstore/petstoreapp/Dockerfile'
                 tags: |
                   $(tag)
-  - stage: Deploy to webapp
+  - stage: Deploytowebapp
     jobs:
       - job: DeployPetstoreapp
         steps:
