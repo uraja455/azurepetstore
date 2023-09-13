@@ -30,3 +30,13 @@ stages:
                 Dockerfile: '$(System.DefaultWorkingDirectory)/petstore/petstoreapp/Dockerfile'
                 tags: |
                   $(tag)
+  - stage: Deploy to webapp
+    jobs:
+      - job: DeployPetstoreapp
+        steps:
+           
+          - task: AzureWebAppContainer@1
+            inputs:
+              azureSubscription: 'Free Trial(e1f99b09-6d33-48df-bb4e-37349ec2de67)'
+              appName: 'petstoreuk'
+              containers: 'petstoreacruk.azurecr.io/petsroteapp:latest'
