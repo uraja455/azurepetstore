@@ -39,5 +39,5 @@ stages:
             inputs:
               azureSubscription: 'Free Trial(e1f99b09-6d33-48df-bb4e-37349ec2de67)'
               appName: 'petstoreuk'
-              containers: 'petstoreacruk.azurecr.io/petsroteapp:latest'
+              containers: 'petstoreacruk.azurecr.io/petsroteapp:$(tag)'
               appSettings: '-DOCKER_REGISTRY_SERVER_URL petstoreacruk.azurecr.io -DOCKER_REGISTRY_SERVER_USERNAME petstoreacruk -DOCKER_REGISTRY_SERVER_PASSWORD 25dKP2Hi7ZXd7bhh6p29pFVYBXrqin8VHZH9RBAwx8+ACRDFpQKQ'
