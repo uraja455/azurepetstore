@@ -21,7 +21,7 @@ variables:
   containerRegistry: 'petstoreacruk.azurecr.io'
   dockerfilePath: 'petstore/petstorepetservice/Dockerfile'
   tag: '$(Build.BuildId)'
-  imagePullSecret: 'petstoreacrukbdc4-auth'
+  imagePullSecret: '$(crImagePullSecretGlobal)'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
