@@ -12,9 +12,9 @@ spec:
       labels:
         app: aks-petstoreorderservice
     spec:
-      nodeSelector:
-        "kubernetes.io/os": linux
-        agentpool: nodepool1
+      #nodeSelector:
+      #  "kubernetes.io/os": linux
+      #  agentpool: nodepool1
       containers:
       - name: petstoreorderservice
         image: azurepetstorecontainerregistry.azurecr.io/petstoreorderservice:latest
