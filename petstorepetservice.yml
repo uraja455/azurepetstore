@@ -19,7 +19,7 @@ variables:
   dockerRegistryServiceConnection: '7d4ca43b-fc64-4dcd-851d-4e88cab89846'
   imageRepository: 'petstorepetservice'
   containerRegistry: 'petstoreacruk.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: 'petstore/petstorepetservice/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'petstoreacrukbdc4-auth'
 
