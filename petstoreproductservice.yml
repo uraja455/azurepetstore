@@ -80,19 +80,19 @@ stages:
           - task: KubernetesManifest@0
             displayName: Create imagePullSecret
             inputs:
-              action: createSecret
-              secretName: $(imagePullSecret)
-              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+              action: 'createSecret'
+              kubernetesServiceConnection: 'azurepetstore-akscluster-ingress-petstoreservices'
+              secretType: 'dockerRegistry'
+              secretName: 'productsecret'
+              dockerRegistryEndpoint: '$(dockerRegistryServiceConnection)'
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
-              action: deploy
+              action: 'deploy'
               kubernetesServiceConnection: 'azurepetstore-akscluster-ingress-petstoreservices'
               namespace: 'ingress-petstoreservices'
               manifests: |
                 $(Pipeline.Workspace)/manifests/petstoreproductservice-deployment-everything-enabled.yml
                 $(Pipeline.Workspace)/manifests/petstoreproductservice-service-everything-enabled.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
-              containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+              containers: '$(containerRegistry)/$(imageRepository):$(tag)'
+              imagePullSecrets: 'productsecret'
