@@ -73,7 +73,7 @@ stages:
     displayName: Deploy App
     pool:
       vmImage: 'ubuntu-latest'
-    environment: 'uraja455azurepetstore.ingress-petstoreservices'
+    environment: 'petstoreaks.ingress-basic'
     strategy:
       runOnce:
         deploy:
@@ -82,8 +82,8 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: deploy
-              kubernetesServiceConnection: 'azurepetstore-akscluster-ingress-petstoreservices'
-              namespace: 'ingress-petstoreservices'
+              kubernetesServiceConnection: 'petstoreaks-azurepetstore-akscluster-ingress-basic-1695500068324'
+              namespace: 'ingress-basic'
               manifests: |
                 $(Pipeline.Workspace)/manifests/petstoreorderservice-deployment-everything-enabled.yml
                 $(Pipeline.Workspace)/manifests/petstoreorderservice-service-everything-enabled.yml
