@@ -74,7 +74,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'uraja455azurepetstore.ingress-petstoreservices'
+    environment: 'uraja455azurepetstore.ingress-basic'
     strategy:
       runOnce:
         deploy:
@@ -91,7 +91,7 @@ stages:
             inputs:
               action: 'deploy'
               kubernetesServiceConnection: 'azurepetstore-akscluster-ingress-petstoreservices'
-              namespace: 'ingress-petstoreservices'
+              namespace: 'ingress-basic'
               manifests: |
                 $(Pipeline.Workspace)/manifests/petstorepetservice-deployment-everything-enabled.yml
                 $(Pipeline.Workspace)/manifests/petstorepetservice-service-everything-enabled.yml
