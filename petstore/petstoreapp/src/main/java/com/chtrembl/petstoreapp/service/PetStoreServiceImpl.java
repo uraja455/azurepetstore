@@ -75,12 +75,12 @@ public class PetStoreServiceImpl implements PetStoreService {
 			Consumer<HttpHeaders> consumer = it -> it.addAll(this.webRequest.getHeaders());
 			pets = this.petServiceWebClient.get().uri("petstorepetservice/v2/pet/findByStatus?status=available")
 					.accept(MediaType.APPLICATION_JSON)
-					.headers(consumer)
-					.header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
-					.header("host", this.containerEnvironment.getPetstoreAPIMHost())
-					.header("session-id", this.sessionUser.getSessionId())
-					.header("Ocp-Apim-Subscription-Key", this.containerEnvironment.getPetStoreServicesSubscriptionKey())
-					.header("Cache-Control", "no-cache").header("Ocp-Apim-Trace", "true").retrieve()
+					//.headers(consumer)
+					//.header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+					//.header("host", this.containerEnvironment.getPetstoreAPIMHost())
+					//.header("session-id", this.sessionUser.getSessionId())
+					.//header("Ocp-Apim-Subscription-Key", this.containerEnvironment.getPetStoreServicesSubscriptionKey())
+					//.header("Cache-Control", "no-cache").header("Ocp-Apim-Trace", "true").retrieve()
 					.bodyToMono(new ParameterizedTypeReference<List<Pet>>() {
 					}).block();
 
