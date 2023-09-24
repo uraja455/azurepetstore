@@ -4,7 +4,12 @@
 # https://aka.ms/yaml
 
 trigger:
-- None
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - petstore/petstoreapp/*
 
 pool:
   #name: Pool1
