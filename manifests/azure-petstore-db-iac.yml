@@ -53,9 +53,9 @@ stages:
             - checkout: self
             - task: AzureCLI@2
               inputs:
-                azureSubscription: $(azureServiceConnection)
-                scriptType: bash
-                scriptLocation: inlineScript
+                azureSubscription: 'Free Trial(e1f99b09-6d33-48df-bb4e-37349ec2de67)'
+                scriptType: 'bash'
+                scriptLocation: 'inlineScript'
                 inlineScript: |
                   az --version
                   ls -l
